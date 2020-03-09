@@ -1,14 +1,12 @@
-import java.util.Random;
 
 public class Person {
-	public Integer id;
+	public String id;
 	public Integer age;
 	public Integer dni;
 	public String name;
 	public String lastname;
 	
-	public Person(Integer id, Integer age, Integer dni, String name, String lastname) {
-		this.id = id;
+	public Person(Integer age, Integer dni, String name, String lastname) {
 		this.age = age;
 		this.dni = dni;
 		this.name = name;
@@ -16,14 +14,14 @@ public class Person {
 	}
 	
 	public String toString() {
-		   return getClass().getName() + '@' + Integer.toHexString(hashCode());
+		   return "id: "+this.id+" age: "+this.age+" dni: "+this.dni+" name: "+this.name+" lastname: "+this.lastname;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -57,19 +55,5 @@ public class Person {
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
-	}
-	
-	public static void main(String[] args) {
-		Random random = new Random();
-		int numero = random.nextInt(5);
-//		System.out.println(numero);
-		String field = "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111";
-		int prefix = (int) (Math.random()*100);
-		int sufix = (int) (Math.random()*100);
-		System.out.println(prefix);
-		System.out.println(sufix);
-		
-		System.out.println(prefix+field+sufix);
-		
 	}
 }
