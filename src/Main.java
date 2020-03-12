@@ -7,11 +7,11 @@ public class Main {
 	public static HashMap<Integer, Character> mapeo = new HashMap<Integer, Character>();
 
 	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException {
-		Person p1 = new Person(21, 37993831, "Nico", "Cabral");
-		System.out.println(p1.toString());
-		setMap();
-		getType(p1);
-		System.out.println(p1.toString());
+//		Person p1 = new Person(21, 37993831, "Nico", "Cabral");
+//		System.out.println(p1.toString());
+//		setMap();
+//		getType(p1);
+//		System.out.println(p1.toString());
 	}
 
 	public static HashMap<Integer, Character> setMap() {
@@ -52,9 +52,13 @@ public class Main {
 	 * @return
 	 */
 	public static String generateCode(String field) {
+		int code = 0;
+		for (int i = 0; i < field.length(); i++) {
+			code = code + Integer.parseInt(String.valueOf(field.charAt(i)));
+		}
 		int prefix = (int) (Math.random()*100);
 		int sufix = (int) (Math.random()*100);
-		return prefix+field+sufix;
+		return prefix+String.valueOf(code)+sufix;
 	}
 
 	/**
