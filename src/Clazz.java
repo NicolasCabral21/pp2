@@ -5,59 +5,65 @@ import java.util.Map.Entry;
 import Util.Registry;
 
 public class Clazz {
+	
 	/**
-	 * Dada una palabra, me tiene que decir que numero es
-	 * @param string
-	 * @return
+	 * Dada una palabra devuelve la concatenacion de numeros que representa cada letra separados por '0'
+	 * @param string palabra
+ 	 * @return 
 	 */
-	public static String convertWord(HashMap<Integer, Character> mapeo, Object string) {
+	public static String wordToNumber(Object string) {
+		
+		HashMap<Integer, Character> mapeo = Registry.getCodeMap();
+		
 		String word = string.toString().toLowerCase();
-		String palabraCodificada = "";
+		String number = "";
 		for (int i = 0; i < word.length(); i++) {
 			for (Entry<Integer, Character> entry : mapeo.entrySet()) {
 				if (word.charAt(i) == entry.getValue()) {
-					palabraCodificada = palabraCodificada + entry.getKey() + "0";
+					number = number + entry.getKey() + "0";
 				}
 			}
 		}
-		return palabraCodificada;
+		System.out.println("word: "+string+" - numero: "+number);
+		return number;
 	}
 	
 	/**
-	 * Dado un objeto, verifica tipo de campos y aplica logica para setear el codigo unico en el ID
+	 * Dado un objeto, devuelve un numero formado por los atributos de tipo Integer y String
 	 * @param obj
 	 * @throws IllegalArgumentException
 	 * @throws IllegalAccessException
 	 */
-	public static String getType(Object obj) throws IllegalArgumentException, IllegalAccessException {
-		String campos = "";
-		HashMap<Integer, Character> mapeo = Registry.setMap();
+	public static String getNumberByObj(Object obj) throws IllegalArgumentException, IllegalAccessException {
+		String number = "";
 		
 		for (Field field : obj.getClass().getFields()) {
 			if(field.get(obj) != null) {
 				if (field.getType() == String.class) {
-					String word = convertWord(mapeo, field.get(obj));
-					campos = campos+word;
+					String word = wordToNumber(field.get(obj));
+					number = number+word;
 				}else {
-					campos=campos+field.get(obj);	
+					number=number+field.get(obj);
 				}
 			}
 		}
-		return campos;
+		return number;
 	}
 	
 	/**
-	 * Genera un codigo con numeros randoms en prefijo y sufijo
-	 * @param field
+	 * Genera un codigo a partir de la suma de los numeros y agrega prefijo y sufijo
+	 * @param number
 	 * @return
 	 */
-	public static String generateCode(String field) {
+	public static String generateCode(String number) {
 		int code = 0;
-		for (int i = 0; i < field.length(); i++) {
-			code = code + Integer.parseInt(String.valueOf(field.charAt(i)));
+		for (int i = 0; i < number.length(); i++) {
+			code = code + Integer.parseInt(String.valueOf(number.charAt(i)));
 		}
+		// de cero a noventa y nueve
 		int prefix = (int) (Math.random()*100);
 		int sufix = (int) (Math.random()*100);
+		
 		return prefix+String.valueOf(code)+sufix;
 	}
 	

@@ -15,53 +15,6 @@ public class Person {
 	}
 	
 	public String toString() {
-		String result ="";
-		if(this.id == null) {
-			result= "id: 0";
-		}else {
-			result = "id:"+this.id;
-		}
-		result = result+" age: "+this.age+" dni: "+this.dni+" name: "+this.name+" lastname: "+this.lastname;
-		return result;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public Integer getAge() {
-		return age;
-	}
-
-	public void setAge(Integer age) {
-		this.age = age;
-	}
-
-	public Integer getDni() {
-		return dni;
-	}
-
-	public void setDni(Integer dni) {
-		this.dni = dni;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+		return "id: "+this.id+" age: "+this.age+" dni: "+this.dni+" name: "+this.name+" lastname: "+this.lastname;
 	}
 }
