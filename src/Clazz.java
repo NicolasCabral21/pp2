@@ -24,7 +24,7 @@ public class Clazz {
 	}
 	
 	/**
-	 * Dado un objeto, verifica tipo de campos y aplica logica para setear en el ID el codigo unico
+	 * Dado un objeto, verifica tipo de campos y aplica logica para setear el codigo unico en el ID
 	 * @param obj
 	 * @throws IllegalArgumentException
 	 * @throws IllegalAccessException

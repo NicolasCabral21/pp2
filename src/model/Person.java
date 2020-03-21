@@ -15,7 +15,14 @@ public class Person {
 	}
 	
 	public String toString() {
-		   return "id: "+this.id+" age: "+this.age+" dni: "+this.dni+" name: "+this.name+" lastname: "+this.lastname;
+		String result ="";
+		if(this.id == null) {
+			result= "id: 0";
+		}else {
+			result = "id:"+this.id;
+		}
+		result = result+" age: "+this.age+" dni: "+this.dni+" name: "+this.name+" lastname: "+this.lastname;
+		return result;
 	}
 
 	public String getId() {
