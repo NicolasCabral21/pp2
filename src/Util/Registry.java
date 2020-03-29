@@ -18,7 +18,6 @@ public class Registry {
 		for (int i = 0; i < 27; i++) {
 			codeMap.put(numeros[i], letras[i]);
 		}
-		System.out.println(codeMap);
 		return codeMap;
 	}
 }
